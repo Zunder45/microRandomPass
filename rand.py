@@ -4,7 +4,7 @@ import var
 
 
 
-def rand_word():
+def onlySymAlph():
     res = ""
     if r.randint(0,1) == 0: #0 - lower 1 - upper
         return  var.en_alph[r.randint(0,len(var.en_alph)-1)].lower()
@@ -22,7 +22,7 @@ def rend_char():
 
 rand_func = {
     1: lambda: rand_num() if var.onlyNum else False,
-    2: lambda: rand_word() if var.onlySymAlph else False,
+    2: lambda: onlySymAlph() if var.onlySymAlph else False,
     3: lambda: rend_char() if var.onlyChar else False
 }
 
