@@ -13,8 +13,9 @@
 
 
 
-import conf
+# import conf
 import sys, random
+import string 
 
 def getValArg():
     args = sys.argv
@@ -76,6 +77,12 @@ def getPasswd(args):
         listArgForGen.append("adw")
     if args["aup"] == True:
         listArgForGen.append("aup")
+
+    if len(listArgForGen) == 0:
+        listArgForGen.append("num")
+        listArgForGen.append("chr")
+        listArgForGen.append("adw")
+        listArgForGen.append("aup")  
     
     for i in range(int(args['itr'])):
         strPass = ""
@@ -85,11 +92,11 @@ def getPasswd(args):
             if start == "num":
                 strPass += str(random.randrange(0,10))
             elif start == "adw":
-                strPass += str(random.choice(conf.lett)).lower()
+                strPass += str(random.choice(string.ascii_lowercase))
             elif start == "aup":
-                strPass += random.choice(conf.lett).upper()    
+                strPass += random.choice(string.ascii_uppercase)    
             elif start == "chr":
-                strPass += random.choice(conf.char)
+                strPass += random.choice(string.punctuation)
             
         passwdListChar.append(strPass)
 
